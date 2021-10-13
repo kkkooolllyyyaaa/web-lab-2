@@ -7,3 +7,8 @@ stack:
 * JavaScript
 * CSS
 * HTML5
+
+technologies:
+* maven
+* wildfly
+* svg
