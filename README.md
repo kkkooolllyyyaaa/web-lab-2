@@ -1,5 +1,7 @@
 # web-lab-2
-# stack:
+
+stack:
+
 * JAVA 8
 * JSP
 * JavaScript
