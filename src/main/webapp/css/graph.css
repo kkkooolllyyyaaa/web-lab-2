@@ -1,0 +1,32 @@
+/*GRAPH*/
+
+.svg-coordinates {
+    margin: 3.5em 1em 1em 6em;
+    padding: 1em;
+}
+
+.coordinates-figure {
+    fill: burlywood;
+    stroke-width: 2px;
+    stroke: #a25d06;
+}
+.coordinates-figure:hover, .coordinates-figure:focus{
+    cursor: crosshair;
+}
+
+.coordinate-axis {
+    stroke-width: 2px;
+    stroke: #734108;
+    fill: bisque;
+}
+
+.coordinates-marker {
+    stroke-width: 2px;
+    stroke: #734108;
+}
+
+.coordinates-text {
+    fill: #734108;
+    stroke-width: 1px;
+    stroke: #734108;
+}

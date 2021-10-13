@@ -1,0 +1,22 @@
+/*Back to main */
+
+.back-to-main-link {
+    color: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.25em;
+    display: flex;
+    width: 15%;
+    text-decoration: none;
+    justify-content: center;
+    padding: 1em;
+}
+
+.back-to-main-link:hover {
+    background-color: #fcc57d;
+}
+
+.back-to-main-link[href] {
+    font-weight: bold;
+    font-size: 105%;
+}

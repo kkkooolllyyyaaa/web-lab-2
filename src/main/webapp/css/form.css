@@ -1,0 +1,62 @@
+/*Form*/
+.parameter-form {
+    width: 20em;
+    padding: 1em;
+    margin: 1em;
+    background-color: burlywood;
+    border-radius: 32px;
+    float: left;
+    text-align: center;
+}
+
+.parameter-form h3 {
+    text-align: left;
+    margin-left: 1.5em;
+    margin-block-start: 0.7em;
+    margin-block-end: 0.7em;
+}
+
+.text-input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid #8b4512;
+    color: #a25d06;
+    line-height: 2em;
+    text-align: left;
+    padding: 0.5em 0.25em;
+}
+
+.text-input::placeholder {
+    color: #8b4512;
+}
+
+.text-input:focus {
+    outline: 2px solid #734108;
+    font-size: 70%;
+}
+
+.action-buttons {
+    margin-block-start: 1em;
+    padding: 0.5em;
+    height: auto;
+}
+
+.action-button {
+    padding: 0.25em;
+    color: #734108;
+    background-color: burlywood;
+    border: #734108 solid 2px;
+    border-radius: 10px;
+    width: 6em;
+}
+
+.action-button:hover, .action-button:focus {
+    border: bisque solid 2px;
+    cursor: pointer;
+}
+
+.action-button:active {
+    color: inherit;
+    font-weight: bold;
+    background-color: #fcc57d;
+}

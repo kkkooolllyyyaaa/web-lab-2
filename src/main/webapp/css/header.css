@@ -1,0 +1,46 @@
+/*Header*/
+
+.rounded-signboard {
+    box-shadow: -5px -5px 20px burlywood, 5px 5px 20px saddlebrown;
+    border-radius: 32px;
+    background-color: burlywood;
+}
+
+.header {
+    margin: 1.5em auto;
+    width: 70%;
+    font-size: 105%;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75em;
+}
+
+#header .personal-info {
+    align-items: center;
+    margin-left: 1em;
+}
+
+#header .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header .nav .link {
+    color: inherit;
+    margin-right: 1em;
+    text-decoration: none;
+}
+
+#header .nav a[href] {
+    font-weight: bold;
+    font-size: 105%;
+}
+
+#header .nav a:hover {
+    background-color: #fcc57d;
+}
