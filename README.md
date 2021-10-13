@@ -13,4 +13,5 @@ stack:
 technologies:
 * maven
 * wildfly
+* lombok
 * svg
