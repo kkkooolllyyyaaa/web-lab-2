@@ -9,7 +9,7 @@
             <a class="link" href="#">
                 Variant 10212
             </a>
-            <a class="link" href="https://github.com/kkkooolllyyyaaa/test_web" target="_blank">
+            <a class="link" href="https://github.com/kkkooolllyyyaaa/web-lab-2" target="_blank">
                 <img alt="github" src="${pageContext.request.contextPath}/img/github.svg" width="35">
             </a>
         </div>

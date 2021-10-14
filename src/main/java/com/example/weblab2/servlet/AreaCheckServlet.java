@@ -27,13 +27,17 @@ public class AreaCheckServlet extends HttpServlet {
         TimeHandler timeHandler = new TimeHandler();
         timeHandler.START();
         HttpSession session = request.getSession(true);
-
-        double x = getNumbered(request, "x");
-        double y = getNumbered(request, "y");
-        double r = getNumbered(request, "r");
-
-        ResultTable resultTable = getHandled(new Point(x, y, r), session, timeHandler, request);
-        session.setAttribute("resultTable", resultTable);
+        String xParam, yParam, rParam;
+        xParam = request.getParameter("x");
+        yParam = request.getParameter("y");
+        rParam = request.getParameter("r");
+        if (isDoubles(xParam, yParam, rParam)) {
+            double x = Double.parseDouble(xParam.replace(',', '.'));
+            double y = Double.parseDouble(yParam.replace(',', '.'));
+            double r = Double.parseDouble(rParam.replace(',', '.'));
+            ResultTable resultTable = getHandled(new Point(x, y, r), session, timeHandler, request);
+            session.setAttribute("resultTable", resultTable);
+        }
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
@@ -56,10 +60,16 @@ public class AreaCheckServlet extends HttpServlet {
         return resultTable;
     }
 
-    private double getNumbered(HttpServletRequest request, String name) {
-        double param = Double.parseDouble(request.getParameter(name).replace(',', '.'));
-        if (Math.abs(param - Math.round(param)) <= 1e-7)
-            param = Math.round(param);
-        return param;
+    private boolean isDoubles(String... args) throws NumberFormatException {
+        try {
+            for (String s : args) {
+                if (s == null)
+                    return false;
+                Double.parseDouble(s.replace(',', '.'));
+            }
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

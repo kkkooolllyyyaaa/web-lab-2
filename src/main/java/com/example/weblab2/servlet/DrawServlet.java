@@ -25,23 +25,32 @@ public class DrawServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         ResultTable resultTable = (ResultTable) session.getAttribute("resultTable");
-        double r = getR(req);
-        if (resultTable != null) {
-            if (r > 2 && r < 5) {
-                resultTable.setDisplayR(r);
-                session.setAttribute("curR", String.valueOf(r));
+        String rParam = req.getParameter("r");
+        if (isDoubles(rParam)) {
+            double r = Double.parseDouble(rParam.replace(',', '.'));
+            if (resultTable != null) {
+                if (r > 2 && r < 5) {
+                    resultTable.setDisplayR(r);
+                    session.setAttribute("curR", String.valueOf(r));
+                }
+            } else {
+                resultTable = new ResultTable();
             }
-        } else {
-            resultTable = new ResultTable();
+            session.setAttribute("resultTable", resultTable);
         }
-        session.setAttribute("resultTable", resultTable);
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 
-    private double getR(HttpServletRequest request) {
-        double param = Double.parseDouble(request.getParameter("r").replace(',', '.'));
-        if (Math.abs(param - Math.round(param)) <= 1e-7)
-            param = Math.round(param);
-        return param;
+    private boolean isDoubles(String... args) throws NumberFormatException {
+        try {
+            for (String s : args) {
+                if (s == null)
+                    return false;
+                Double.parseDouble(s.replace(',', '.'));
+            }
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

@@ -21,6 +21,8 @@ public class Result {
     @Getter
     private boolean isDot;
     private final boolean isHit;
+    private final double width;
+    private final double shift;
 
     public Result(double x, double y, double r, boolean isHit) {
         this.x = x;
@@ -28,6 +30,8 @@ public class Result {
         this.r = r;
         this.isHit = isHit;
         this.isDot = false;
+        width = 350.0;
+        shift = 70.0;
     }
 
     @Override
@@ -44,8 +48,8 @@ public class Result {
 
     public String getDotSvg(double displayR) {
         if (isDot) {
-            double xCor = (x * 140 / displayR) + 175;
-            double yCor = (175 - (y * 140 / displayR));
+            double xCor = (x * ((width - shift) / 2) / displayR) + width / 2;
+            double yCor = (width / 2 - (y * ((width - shift) / 2) / displayR));
             String color = (isHit ? "\"green\"" : "\"red\"");
             return "<circle class=\"coordinate-dot\" r=\"2.5\" cx=\"" + xCor + "\" cy=\"" + yCor + "\" stroke=" + color + " fill=" + color + "></circle>\n";
         } else return "";

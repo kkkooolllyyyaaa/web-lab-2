@@ -30,6 +30,6 @@ public class PointService {
     }
 
     private boolean isValid() {
-        return x > -3.0d && x < 3.0d && y >= -3.0d && y <= 5.0d && r > 2 && r < 5;
+        return x > -3.0d && x < 3.0d && y >= -3.0d && y <= 5.0d && r > 2.0 && r < 5.0;
     }
 }
